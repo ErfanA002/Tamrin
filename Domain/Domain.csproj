@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DomainModel\Person\Enums\" />
-    <Folder Include="DomainModel\Person\Exceptions\" />
+    <Folder Include="DomainModel\Persons\Enums\" />
+    <Folder Include="DomainModel\Persons\Exceptions\" />
   </ItemGroup>
 
 </Project>
