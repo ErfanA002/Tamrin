@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="DomainModel\Persons\Enums\" />
     <Folder Include="DomainModel\Persons\Exceptions\" />
+    <Folder Include="DomainModel\Persons\Result\" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using Domain.DomainModel.Persons.Entities;
+﻿using Domain.DomainModel.Persons.DTO;
+using Domain.DomainModel.Persons.Entities;
 using Domain.DomainModel.Persons.Service;
 using Microsoft.AspNetCore.Mvc;
 namespace Presentation.Controllers;
@@ -20,25 +21,25 @@ public class PersonController : ControllerBase
     }
 
 
-    [HttpGet]
+    [HttpGet("{id:int}")]
     public Person GetPersonById(int id)
     {
         return _personService.GetPersonById(id);
     }
 
     [HttpPost]
-    public void CreatePerson(Person person) 
+    public void CreatePerson(CreatePersonDTO person) 
     {
         _personService.CreatePerson(person);
     }
 
-    [HttpPut("{id}")]
-    public void UpdatePerson(int id,Person person)
+    [HttpPut("{id:int}")]
+    public void UpdatePerson(int id,UpdatePersonDTO person)
     {
         _personService.UpdatePerson(id,person);
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{id:int}")]
     public void DeletePerson(int id)
     {
         _personService.DeletePerson(id);
