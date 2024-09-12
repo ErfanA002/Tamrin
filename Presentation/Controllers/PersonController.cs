@@ -56,6 +56,12 @@ public class PersonController : ControllerBase
         _personService.ActivePerson(personId);
     }
 
+    [HttpPut("DisenablePerson/{personId:int}")]
+    public void DisenablePerson(int personId)
+    {
+        _personService.DisenablePerson(personId);
+    }
+
     [HttpPut("AddAddess/{id}")]
     public void AddAddess(string addess,int id)
     {

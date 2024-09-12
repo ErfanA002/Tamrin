@@ -66,6 +66,13 @@ public class PersonRepository : IPersonRepository
         targetPerson.IsActive = true;
     }
 
+    public void DisenablePerson(int personid)
+    {
+        var targetPerson = GetById(personid);
+
+        targetPerson.IsActive = false;
+    }
+
     public void AddPersonAddess(int id,string addess)
     {
         var targetPerson = GetById(id);

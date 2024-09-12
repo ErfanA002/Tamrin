@@ -53,6 +53,12 @@ public class PersonService : IPersonService
         _PersonRepository.Save();
     }
 
+    public void DisenablePerson(int personid)
+    {
+        _PersonRepository.DisenablePerson(personid);
+        _PersonRepository.Save();
+    }
+
     public void AddAddess(int id ,string addess)
     {
         _PersonRepository.AddPersonAddess(id,addess);
