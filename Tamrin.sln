@@ -9,21 +9,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9FED87F1-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{3D461312-452C-4F67-99D0-52F352CB6ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{72B2136C-3FB3-469B-83D4-CAFC8FB5BC5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{72B2136C-3FB3-469B-83D4-CAFC8FB5BC5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{E5126B62-AA65-4EEC-8A64-4C9E9355FE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{E5126B62-AA65-4EEC-8A64-4C9E9355FE4D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{571BB01E-0E5E-48CB-90BE-EF9B84129179}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{E37109A1-7946-4CFB-8EB0-40C1803CB294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{E37109A1-7946-4CFB-8EB0-40C1803CB294}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FCBA3497-7BFC-45C0-A5AD-DF21B76F3C50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{0DE85F40-F57E-428C-BD35-2B9ECB454B78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{0DE85F40-F57E-428C-BD35-2B9ECB454B78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{2A7282BB-2104-410D-8BC2-20C4B026717B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit", "Unit\Unit.csproj", "{C892D5C0-50B5-4F9A-874A-4D608B46E46E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unit", "Unit\Unit.csproj", "{C892D5C0-50B5-4F9A-874A-4D608B46E46E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

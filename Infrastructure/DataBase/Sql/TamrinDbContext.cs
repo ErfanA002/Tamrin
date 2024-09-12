@@ -1,4 +1,4 @@
-﻿using Domain.DomainModel.Persons.Entities;
+﻿using Domain.Models.Persons.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.DataBase.Sql;
 public class TamrinDbContext : DbContext

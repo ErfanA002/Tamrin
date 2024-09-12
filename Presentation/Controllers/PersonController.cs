@@ -1,6 +1,6 @@
-﻿using Domain.DomainModel.Persons.DTO;
-using Domain.DomainModel.Persons.Entities;
-using Domain.DomainModel.Persons.Service;
+﻿using Domain.Models.Persons.DTOs;
+using Domain.Models.Persons.Entities;
+using Domain.Models.Persons.Services;
 using Microsoft.AspNetCore.Mvc;
 namespace Presentation.Controllers;
 [Route("api/[controller]")]
@@ -14,34 +14,51 @@ public class PersonController : ControllerBase
         _personService = personService;
     }
 
-    [HttpGet("GetAll")]
-    public List<Person> Person()
+    [HttpGet("GetPerson")]
+    public IEnumerable<Person> Person()
     {
         return _personService.Person();
     }
 
-
-    [HttpGet("{id:int}")]
+    [HttpGet("GetById/{id:int}")]
     public Person GetPersonById(int id)
     {
         return _personService.GetPersonById(id);
     }
 
-    [HttpPost]
-    public void CreatePerson(CreatePersonDTO person) 
+    [HttpPost("Create")]
+    public void CreatePerson(CreatePersonDTO person)
     {
         _personService.CreatePerson(person);
     }
 
-    [HttpPut("{id:int}")]
-    public void UpdatePerson(int id,UpdatePersonDTO person)
+    [HttpPut("Update/{id:int}")]
+    public void UpdatePerson(int id, UpdatePersonDTO person)
     {
-        _personService.UpdatePerson(id,person);
+        _personService.UpdatePerson(id, person);
     }
 
-    [HttpDelete("{id:int}")]
+    [HttpDelete("Delete/{id}")]
     public void DeletePerson(int id)
     {
         _personService.DeletePerson(id);
+    }
+
+    [HttpDelete("DeleteLogical/{id:int}")]
+    public void DeleteLogicalPerson(int id)
+    {
+        _personService.DeleteLogicalPerson(id);
+    }
+
+    [HttpPut("ActivePerson/{personId:int}")]
+    public void ActivePerson(int personId)
+    {
+        _personService.ActivePerson(personId);
+    }
+
+    [HttpPut("AddAddess/{id}")]
+    public void AddAddess(string addess,int id)
+    {
+        _personService.AddAddess(id,addess);
     }
 }
