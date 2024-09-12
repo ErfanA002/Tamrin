@@ -1,6 +1,6 @@
 using Application.Services.Person;
-using Domain.DomainModel.Persons.Repositorys;
-using Domain.DomainModel.Persons.Service;
+using Domain.Models.Persons.Repositorys;
+using Domain.Models.Persons.Services;
 using Infrastructure.DataBase.Sql;
 using Infrastructure.DataBase.Sql.Repository;
 using Microsoft.EntityFrameworkCore;

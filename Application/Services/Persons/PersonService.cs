@@ -26,30 +26,36 @@ public class PersonService : IPersonService
     public void CreatePerson(CreatePersonDTO person)
     {
         _PersonRepository.Create(person);
+        _PersonRepository.Save();
     }
 
     public void UpdatePerson(int id, UpdatePersonDTO person)
     {
         _PersonRepository.Update(id,person);
+        _PersonRepository.Save();
     }
 
     public void DeletePerson(int id)
     {
         _PersonRepository.Delete(id);
+        _PersonRepository.Save();
     }
 
     public void DeleteLogicalPerson(int id)
     {
         _PersonRepository.DeleteLogical(id);
+        _PersonRepository.Save();
     }
 
     public void ActivePerson(int personId)
     {
         _PersonRepository.ActivePerson(personId);
+        _PersonRepository.Save();
     }
 
     public void AddAddess(int id ,string addess)
     {
         _PersonRepository.AddPersonAddess(id,addess);
+        _PersonRepository.Save();
     }
 }
