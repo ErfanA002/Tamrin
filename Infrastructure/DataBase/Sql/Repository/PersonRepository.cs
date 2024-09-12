@@ -1,6 +1,7 @@
 ﻿using Domain.Models.Persons.DTOs;
 using Domain.Models.Persons.Entities;
 using Domain.Models.Persons.Repositorys;
+using System.Net;
 
 namespace Infrastructure.DataBase.Sql.Repository;
 public class PersonRepository : IPersonRepository
@@ -50,7 +51,9 @@ public class PersonRepository : IPersonRepository
         var newperson = new Person()
         {
             Name = person.Name,
-            LastName = person.LastName
+            LastName = person.LastName,
+            Address = person.Adress,
+            Numbers = person.Numbers
         };
 
         _tamrinDbContext.Persons.Add(newperson);
