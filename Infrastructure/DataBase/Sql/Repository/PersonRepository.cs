@@ -73,7 +73,7 @@ public class PersonRepository : IPersonRepository
         targetPerson.IsActive = false;
     }
 
-    public void AddPersonAddess(int id,string addess)
+    public void AddPersonAddess(int id,string[] addess)
     {
         var targetPerson = GetById(id);
 

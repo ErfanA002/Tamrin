@@ -13,6 +13,6 @@ public interface IPersonRepository
     public void Create(CreatePersonDTO person);
     public void ActivePerson(int personId);
     public void DisenablePerson(int personid);
-    public void AddPersonAddess(int id,string addess);
+    public void AddPersonAddess(int id,string[] addess);
     public void Save();
 }

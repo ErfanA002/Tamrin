@@ -25,7 +25,7 @@ namespace Presentation
 
             builder.Services.AddDbContext<TamrinDbContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("RbcDB"));
             });
 
             var app = builder.Build();

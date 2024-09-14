@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(TamrinDbContext))]
-    [Migration("20240912114252_init")]
+    [Migration("20240914051806_init")]
     partial class init
     {
         /// <inheritdoc />

@@ -2,7 +2,9 @@
 using Domain.Models.Persons.Entities;
 using Domain.Models.Persons.Services;
 using Microsoft.AspNetCore.Mvc;
+
 namespace Presentation.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 public class PersonController : ControllerBase
@@ -63,7 +65,7 @@ public class PersonController : ControllerBase
     }
 
     [HttpPut("AddAddess/{id}")]
-    public void AddAddess(string addess,int id)
+    public void AddAddess(string[] addess,int id)
     {
         _personService.AddAddess(id,addess);
     }

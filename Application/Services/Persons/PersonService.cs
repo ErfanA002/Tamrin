@@ -59,7 +59,7 @@ public class PersonService : IPersonService
         _PersonRepository.Save();
     }
 
-    public void AddAddess(int id ,string addess)
+    public void AddAddess(int id ,string[] addess)
     {
         _PersonRepository.AddPersonAddess(id,addess);
         _PersonRepository.Save();
