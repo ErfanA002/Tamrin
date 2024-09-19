@@ -64,9 +64,9 @@ public class PersonController : ControllerBase
         _personService.DisenablePerson(personId);
     }
 
-    [HttpPut("AddAddess/{id}")]
-    public void AddAddess(string addess,int id)
+    [HttpPut("Address/{id}")]
+    public void Address(string address,int id)
     {
-        _personService.AddAddess(id,addess);
+        _personService.Address(id,address);
     }
 }

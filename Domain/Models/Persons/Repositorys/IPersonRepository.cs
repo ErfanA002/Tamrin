@@ -12,6 +12,6 @@ public interface IPersonRepository
     public void Create(Person person);
     public void ActivePerson(int personId);
     public void DisenablePerson(int personid);
-    public void AddPersonAddess(int id,string addess);
+    public void AddPersonAddress(int id,string addess);
     public void Save();
 }

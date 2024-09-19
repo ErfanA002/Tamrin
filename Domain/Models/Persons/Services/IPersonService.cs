@@ -13,5 +13,5 @@ public interface IPersonService
     public void DeleteLogicalPerson(int id);
     public void ActivePerson(int personId);
     public void DisenablePerson(int personid);
-    public void AddAddess(int id, string addess);
+    public void Address(int id, string addess);
 }

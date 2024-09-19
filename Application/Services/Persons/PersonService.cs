@@ -1,4 +1,5 @@
 ﻿using Domain.Models.Persons.DTOs;
+using Domain.Models.Persons.Entities;
 using Domain.Models.Persons.Repositorys;
 using Domain.Models.Persons.Services;
 
@@ -25,12 +26,26 @@ public class PersonService : IPersonService
 
     public void CreatePerson(PersonDTO person)
     {
+        List<Address> addresses = new List<Address>();
+
+        foreach (var item in person.Addresses)
+        {
+            addresses.Add(new Address(){Name = item});
+        }
+
+        List<Phone> phones = new List<Phone>();
+
+        foreach (var item in person.Phones)
+        {
+            phones.Add(new Phone() {Number = item});
+        }
+
         _PersonRepository.Create(new Domain.Models.Persons.Entities.Person()
         {
             Name = person.Name,
             LastName = person.LastName,
-            Phone = person.Phone,
-            Address = person.Address
+            Phone = phones,
+            Address = addresses
         });
 
         _PersonRepository.Save();
@@ -38,12 +53,27 @@ public class PersonService : IPersonService
 
     public void UpdatePerson(int id,PersonDTO person)
     {
+
+        List<Address> addresses = new List<Address>();
+
+        foreach (var item in person.Addresses)
+        {
+            addresses.Add(new Address() { Name = item });
+        }
+
+        List<Phone> phones = new List<Phone>();
+
+        foreach (var item in person.Phones)
+        {
+            phones.Add(new Phone() { Number = item });
+        }
+
         _PersonRepository.Update(id,new Domain.Models.Persons.Entities.Person()
         {
             Name = person.Name,
             LastName = person.LastName,
-            Address = person.Address,
-            Phone = person.Phone,
+            Address = addresses,
+            Phone = phones,
             IsActive = person.IsActive,
             IsDelete = person.IsDelete
         });
@@ -77,9 +107,9 @@ public class PersonService : IPersonService
         _PersonRepository.Save();
     }
 
-    public void AddAddess(int id, string addess)
+    public void Address(int id, string addess)
     {
-        _PersonRepository.AddPersonAddess(id,addess);
+        _PersonRepository.AddPersonAddress(id,addess);
 
         _PersonRepository.Save();
     }
