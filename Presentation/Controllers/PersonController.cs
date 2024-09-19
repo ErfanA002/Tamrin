@@ -2,7 +2,9 @@
 using Domain.Models.Persons.Entities;
 using Domain.Models.Persons.Services;
 using Microsoft.AspNetCore.Mvc;
+
 namespace Presentation.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 public class PersonController : ControllerBase
@@ -27,13 +29,13 @@ public class PersonController : ControllerBase
     }
 
     [HttpPost("Create")]
-    public void CreatePerson(CreatePersonDTO person)
+    public void CreatePerson(PersonDTO person)
     {
         _personService.CreatePerson(person);
     }
 
     [HttpPut("Update/{id:int}")]
-    public void UpdatePerson(int id, UpdatePersonDTO person)
+    public void UpdatePerson(int id,PersonDTO person)
     {
         _personService.UpdatePerson(id, person);
     }

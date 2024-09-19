@@ -23,45 +23,64 @@ public class PersonService : IPersonService
         return _PersonRepository.GetById(id);
     }
 
-    public void CreatePerson(CreatePersonDTO person)
+    public void CreatePerson(PersonDTO person)
     {
-        _PersonRepository.Create(person);
+        _PersonRepository.Create(new Domain.Models.Persons.Entities.Person()
+        {
+            Name = person.Name,
+            LastName = person.LastName,
+            Phone = person.Phone,
+            Address = person.Address
+        });
+
         _PersonRepository.Save();
     }
 
-    public void UpdatePerson(int id, UpdatePersonDTO person)
+    public void UpdatePerson(int id,PersonDTO person)
     {
-        _PersonRepository.Update(id,person);
+        _PersonRepository.Update(id,new Domain.Models.Persons.Entities.Person()
+        {
+            Name = person.Name,
+            LastName = person.LastName,
+            Address = person.Address,
+            Phone = person.Phone,
+            IsActive = person.IsActive,
+            IsDelete = person.IsDelete
+        });
+
         _PersonRepository.Save();
     }
 
     public void DeletePerson(int id)
     {
         _PersonRepository.Delete(id);
+
         _PersonRepository.Save();
     }
 
     public void DeleteLogicalPerson(int id)
     {
         _PersonRepository.DeleteLogical(id);
+
         _PersonRepository.Save();
     }
 
     public void ActivePerson(int personId)
     {
         _PersonRepository.ActivePerson(personId);
-        _PersonRepository.Save();
     }
 
     public void DisenablePerson(int personid)
     {
         _PersonRepository.DisenablePerson(personid);
+
         _PersonRepository.Save();
     }
 
-    public void AddAddess(int id ,string addess)
+    public void AddAddess(int id, string addess)
     {
         _PersonRepository.AddPersonAddess(id,addess);
+
         _PersonRepository.Save();
     }
 }

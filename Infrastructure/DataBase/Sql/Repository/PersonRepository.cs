@@ -1,9 +1,8 @@
-﻿using Domain.Models.Persons.DTOs;
-using Domain.Models.Persons.Entities;
+﻿using Domain.Models.Persons.Entities;
 using Domain.Models.Persons.Repositorys;
-using System.Net;
 
 namespace Infrastructure.DataBase.Sql.Repository;
+
 public class PersonRepository : IPersonRepository
 {
     public TamrinDbContext _tamrinDbContext;
@@ -23,62 +22,58 @@ public class PersonRepository : IPersonRepository
         return _tamrinDbContext.Persons.SingleOrDefault(x => x.Id == id);
     }
 
-    public void Update(int id, UpdatePersonDTO person)
+    public void Update(int id, Person person)
     {
-        var targetPerson = GetById(id);
-        
-        targetPerson.Name = person.Name;
-        targetPerson.LastName = person.LastName;
+        var getPerson = GetById(id);
 
-        _tamrinDbContext.Update(targetPerson);
+        getPerson.Name = person.Name;
+        getPerson.LastName = person.LastName;
+        getPerson.Address = person.Address;
+        getPerson.Phone = person.Phone;
+        getPerson.IsActive = person.IsActive;
+        getPerson.IsDelete = person.IsDelete;
     }
 
     public void Delete(int id)
     {
-        _tamrinDbContext.Remove(id);
+        var targetperson = GetById(id);
+
+        _tamrinDbContext.Remove(targetperson);
     }
 
     public void DeleteLogical(int id)
     {
-        var targetPerson = GetById(id);
+        var targerperson = GetById(id);
 
-        targetPerson.IsDelete = true;
-
+        targerperson.IsDelete = true;
     }
 
-    public void Create(CreatePersonDTO person)
+    public void Create(Person person)
     {
-        var newperson = new Person()
-        {
-            Name = person.Name,
-            LastName = person.LastName,
-            Address = person.Adress,
-            Numbers = person.Numbers
-        };
-
-        _tamrinDbContext.Persons.Add(newperson);
+        _tamrinDbContext.Persons.Add(person);
     }
 
     public void ActivePerson(int personId)
     {
-        var targetPerson = GetById(personId);
+        var targetperson = GetById(personId);
 
-        targetPerson.IsActive = true;
+        targetperson.IsActive = true;
     }
 
     public void DisenablePerson(int personid)
     {
-        var targetPerson = GetById(personid);
+        var targetperson = GetById(personid);
 
-        targetPerson.IsActive = false;
+        targetperson.IsActive = false;
     }
 
-    public void AddPersonAddess(int id,string addess)
+    public void AddPersonAddess(int id, string addess)
     {
-        var targetPerson = GetById(id);
+        var targetperson = GetById(id);
 
-        targetPerson.Address = addess;
+        targetperson.Address.Add(new Address(){Name = addess});
     }
+
 
     public void Save()
     {
