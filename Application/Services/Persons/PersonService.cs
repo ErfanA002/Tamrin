@@ -27,6 +27,8 @@ public class PersonService : IPersonService
     public void CreatePerson(PersonDTO person)
     {
         List<Address> addresses = new List<Address>();
+        
+        //check duplicate adress
 
         foreach (var item in person.Addresses)
         {
