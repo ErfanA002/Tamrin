@@ -55,17 +55,23 @@ public class PersonService : IPersonService
     {
 
         List<Address> addresses = new List<Address>();
-
-        foreach (var item in person.Addresses)
+        
+        if (person.Addresses != null)
         {
-            addresses.Add(new Address() { Name = item });
+            foreach (var item in person.Addresses)
+            {
+                addresses.Add(new Address() { Name = item });
+            }
         }
 
         List<Phone> phones = new List<Phone>();
 
-        foreach (var item in person.Phones)
+        if (person.Phones != null)
         {
-            phones.Add(new Phone() { Number = item });
+            foreach (var item in person.Phones)
+            {
+                phones.Add(new Phone() { Number = item });
+            }
         }
 
         _PersonRepository.Update(id,new Domain.Models.Persons.Entities.Person()
