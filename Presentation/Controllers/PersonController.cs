@@ -29,9 +29,16 @@ public class PersonController : ControllerBase
     }
 
     [HttpPost("Create")]
-    public void CreatePerson(PersonDTO person)
+    public IActionResult CreatePerson(PersonDTO person)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+        
         _personService.CreatePerson(person);
+
+        return Ok();
     }
 
     [HttpPut("Update/{id:int}")]
@@ -65,7 +72,7 @@ public class PersonController : ControllerBase
     }
 
     [HttpPut("Address/{id}")]
-    public void Address(string address,int id)
+    public void Address(int id,string address)
     {
         _personService.Address(id,address);
     }
