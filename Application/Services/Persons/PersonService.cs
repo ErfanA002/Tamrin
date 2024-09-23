@@ -51,7 +51,6 @@ public class PersonService : IPersonService
         addresses = new List<Address>();
         foreach (var item in person.Addresses)
             addresses.Add(new Address() { Name = item });
-        
         phones = new List<Phone>();
         foreach (var item in person.Phones)
             phones.Add(new Phone() { Number = item });
@@ -62,7 +61,6 @@ public class PersonService : IPersonService
         for (var i = 0; i < person.Phones.Count() - 1; i++)
             if (person.Phones[i] == person.Phones[i + 1])
                 throw new Exception("is duplicate address");
-        
     }
 
     private void CheckAddress(PersonDTO person)
