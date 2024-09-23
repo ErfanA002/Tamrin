@@ -26,13 +26,14 @@ public class PersonService : IPersonService
 
     public void CreatePerson(PersonDTO person)
     {
-        List<Address> addresses = new List<Address>();
-
-        CheckAddress(person, addresses);
-
-        List<Phone> phones = new List<Phone>();
+        // first you must validationing data
+        CheckAddress(person);
+        CheckPhone(person);
         
-        CheckPhone(person, phones);
+        List<Address> addresses;
+        List<Phone> phones;
+        
+        addItems(person, out addresses, out phones);
 
         _PersonRepository.Create(new Domain.Models.Persons.Entities.Person()
         {
@@ -45,24 +46,30 @@ public class PersonService : IPersonService
         _PersonRepository.Save();
     }
 
-    private void CheckPhone(PersonDTO person, List<Phone> phones)
+    private static void addItems(PersonDTO person, out List<Address> addresses, out List<Phone> phones)
     {
-        for (var i = 0; i < person.Phones.Count() - 1; i++)
-        {
-            if (person.Phones[i] == person.Phones[i + 1])
-                throw new Exception("is duplicate address");
-            phones.Add(new Phone() { Number = person.Phones[i] });
-        }
+        addresses = new List<Address>();
+        foreach (var item in person.Addresses)
+            addresses.Add(new Address() { Name = item });
+        
+        phones = new List<Phone>();
+        foreach (var item in person.Phones)
+            phones.Add(new Phone() { Number = item });
     }
 
-    private void CheckAddress(PersonDTO person, List<Address> addresses)
+    private void CheckPhone(PersonDTO person)
+    {
+        for (var i = 0; i < person.Phones.Count() - 1; i++)
+            if (person.Phones[i] == person.Phones[i + 1])
+                throw new Exception("is duplicate address");
+        
+    }
+
+    private void CheckAddress(PersonDTO person)
     {
         for (var i = 0; i < person.Addresses.Count() - 1; i++)
-        {
             if (person.Addresses[i] == person.Addresses[i + 1])
                 throw new Exception("is duplicate address");
-            addresses.Add(new Address() { Name = person.Addresses[i] });
-        }
     }
 
     public void UpdatePerson(int id,PersonDTO person)
@@ -71,22 +78,14 @@ public class PersonService : IPersonService
         List<Address> addresses = new List<Address>();
         
         if (person.Addresses != null)
-        {
             foreach (var item in person.Addresses)
-            {
                 addresses.Add(new Address() { Name = item });
-            }
-        }
 
         List<Phone> phones = new List<Phone>();
 
         if (person.Phones != null)
-        {
             foreach (var item in person.Phones)
-            {
                 phones.Add(new Phone() { Number = item });
-            }
-        }
 
         _PersonRepository.Update(id,new Domain.Models.Persons.Entities.Person()
         {
