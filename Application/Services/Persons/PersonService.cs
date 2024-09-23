@@ -28,18 +28,29 @@ public class PersonService : IPersonService
     {
         List<Address> addresses = new List<Address>();
         
-        //check duplicate adress
+        //check duplicate address
 
-        foreach (var item in person.Addresses)
+       
+        for (var i = 0;i < person.Addresses.Count() - 1; i++)
         {
-            addresses.Add(new Address(){Name = item});
+            if (person.Addresses[i] == person.Addresses[i + 1])
+            {
+                throw new Exception("is duplicate address");
+            }
+                
+            addresses.Add(new Address(){Name = person.Addresses[i] });
         }
 
         List<Phone> phones = new List<Phone>();
 
-        foreach (var item in person.Phones)
+        for (var i = 0; i < person.Phones.Count() - 1; i++)
         {
-            phones.Add(new Phone() {Number = item});
+            if (person.Phones[i] == person.Phones[i + 1])
+            {
+                throw new Exception("is duplicate address");
+            }
+
+            phones.Add(new Phone() { Number = person.Phones[i] });
         }
 
         _PersonRepository.Create(new Domain.Models.Persons.Entities.Person()
