@@ -33,7 +33,7 @@ public class PersonService : IPersonService
         List<Address> addresses;
         List<Phone> phones;
         
-        addItems(person, out addresses, out phones);
+        AddItems(person, out addresses, out phones);
 
         _PersonRepository.Create(new Domain.Models.Persons.Entities.Person()
         {
@@ -46,7 +46,7 @@ public class PersonService : IPersonService
         _PersonRepository.Save();
     }
 
-    private static void addItems(PersonDTO person, out List<Address> addresses, out List<Phone> phones)
+    private void AddItems(PersonDTO person, out List<Address> addresses, out List<Phone> phones)
     {
         addresses = new List<Address>();
         foreach (var item in person.Addresses)
