@@ -130,4 +130,14 @@ public class PersonService : IPersonService
 
         _PersonRepository.Save();
     }
+
+    public void UpdatePersonAddress(int addessid, Address address)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdatePersonPhone(int id, Phone phone)
+    {
+        throw new NotImplementedException();
+    }
 }

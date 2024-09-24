@@ -14,4 +14,6 @@ public interface IPersonRepository
     public void DisenablePerson(int personid);
     public void AddPersonAddress(int id,string addess);
     public void Save();
+    void UpdatePersonAddress(int addessid, Address address);
+    void UpdatePersonPhone(int id, Phone phone);
 }

@@ -14,4 +14,6 @@ public interface IPersonService
     public void ActivePerson(int personId);
     public void DisenablePerson(int personid);
     public void Address(int id, string addess);
+    void UpdatePersonAddress(int addessid,Address address);
+    void UpdatePersonPhone(int id,Phone phone);
 }
