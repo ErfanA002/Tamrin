@@ -35,7 +35,6 @@ public class Program
 
     private static void ConfigSwagger(WebApplication app)
     {
-        // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
